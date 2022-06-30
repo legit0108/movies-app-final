@@ -23,7 +23,7 @@ export default class Favourites extends Component {
                 temp.push(genreids[movieObj.genre_ids[0]]);
             }
         })
-        temp.unshift('All Genres') // starting mai push
+        temp.unshift('All Genres')
         this.setState({
             genres:[...temp],
             movies:[...data]
@@ -153,7 +153,6 @@ export default class Favourites extends Component {
                                         <th scope="col">Genre</th>
                                         <th scope="col"><i class="fas fa-sort-up" onClick={this.sortPopularityDesc}></i>Popularity<i class="fas fa-sort-down"onClick={this.sortPopularityAsc}></i></th>
                                         <th scope="col"><i class="fas fa-sort-up" onClick={this.sortRatingDesc}></i>Rating<i class="fas fa-sort-down"onClick={this.sortRatingAsc}></i></th>
-                                        {/* <th scope="col">Rating</th> */}
                                         <th scope="col"></th>
                                         </tr>
                                     </thead>
@@ -179,9 +178,6 @@ export default class Favourites extends Component {
                                             <li class="page-item"><a class="page-link" onClick={()=>this.handlePageChange(page)}>{page}</a></li>
                                         ))
                                     }
-                                    {/* <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li> */}
                                 </ul>
                             </nav>
                         </div>

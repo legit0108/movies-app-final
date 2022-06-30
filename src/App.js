@@ -26,9 +26,6 @@ function App() {
           </>
         )}/>
       </Switch>
-        {/* <Banner/>
-        <Movies/> */}
-        {/* <Favourites/> */}
      </Router>
   );
 }

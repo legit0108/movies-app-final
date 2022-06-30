@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { movies } from './getMovies'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 
@@ -17,7 +16,6 @@ export default class Movies extends Component {
     async componentDidMount(){
         const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=763e9b8770fb6a7ecec2ffd5f1d678cc&page=${this.state.currPage}`)
         let data = res.data;
-        // console.log(data);
         this.setState({
             movies:[...data.results]
         })
@@ -26,7 +24,6 @@ export default class Movies extends Component {
     changeMovies=async()=>{
         const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=763e9b8770fb6a7ecec2ffd5f1d678cc&page=${this.state.currPage}`)
         let data = res.data;
-        // console.log(data);
         this.setState({
             movies:[...data.results]
         })
@@ -48,7 +45,7 @@ export default class Movies extends Component {
             this.setState({
                 currPage:this.state.currPage+1
             },this.changeMovies) // provided like a callback to achieve sync
-        }                    // pehle parr , currPage updation then call changeMovies 
+        }                    // first parr , currPage updation then call changeMovies 
                             // we have not called the function : this.changeMovies() , this is calling
                             // we provided definition only
 
@@ -101,7 +98,6 @@ export default class Movies extends Component {
     }
 
     render() {
-        // let movie = movies.results;
         return (
             <>
             {
@@ -123,16 +119,16 @@ export default class Movies extends Component {
                                                                             )}
                                                               >
                                 <img src={`https://image.tmdb.org/t/p/original${movieObj.backdrop_path}`} alt={movieObj.title} className="card-img-top movies-img"/>
-                                {/* <div className="card-body"> */} 
+                                
                                 <h5 className="card-title movies-title" onClick = {()=>this.showMovie(movieObj)}>{movieObj.original_title}</h5>
-                                    {/* <p className="card-text movies-text">{movieObj.overview}</p> */}
+                                   
                                     <div className ="button-wrapper" style = {{display:'flex',width:'100%',justifyContent:'center'}}>
                                         {
                                           this.state.hover == movieObj.id&&<a className="btn btn-primary movies-button"onClick={()=>this.handleFavourites(movieObj)}>{this.state.favourites.includes(movieObj.id)?"Remove from favourites":"Add to favourites"}</a>
                                         }
                                     
                                     </div>
-                                {/* </div> */}
+                                
                             </div>
                             
                         ))
@@ -146,7 +142,7 @@ export default class Movies extends Component {
                                 this.state.parr.map((value)=>(
                                     <li class="page-item"><a class="page-link"onClick={()=>this.handleClick(value)}>{value}</a></li>
                                     // if ()=> this.handleClick(value) is replaced by only this.handleClick(value)
-                                    // thats wrong because thats calling function , and this is fxn definition(arrow function calling function)
+                                    // thats wrong because thats calling function , and this is function definition(arrow function calling function)
                                     // we do not want to call handleClick() when DOM is being applied
                                 ))
 

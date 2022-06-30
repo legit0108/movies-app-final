@@ -43,7 +43,6 @@ handleFavouritesState = ()=>{
     return(
     
     (this.state.movie.length==0)?<h1>Loading...</h1>:
-    // <h1>{this.state.movie.original_title}</h1>
     <div className = "main">
             <div className="row">
                     <div className="col-lg-5 col-sm-12 movie-card" onMouseEnter={()=>this.setState({
